@@ -1,0 +1,58 @@
+// Copyright (c) 2019 The Jaeger Authors.
+// Copyright (c) 2017 Uber Technologies, Inc.
+// SPDX-License-Identifier: Apache-2.0
+
+package app
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"go.uber.org/zap"
+
+	"github.com/jaegertracing/jaeger/cmd/collector/app/flags"
+	cmdFlags "github.com/jaegertracing/jaeger/cmd/internal/flags"
+	"github.com/jaegertracing/jaeger/pkg/config"
+	"github.com/jaegertracing/jaeger/pkg/metrics"
+	"github.com/jaegertracing/jaeger/pkg/tenancy"
+	"github.com/jaegertracing/jaeger/plugin/storage/memory"
+)
+
+func TestNewSpanHandlerBuilder(t *testing.T) {
+	v, command := config.Viperize(cmdFlags.AddFlags, flags.AddFlags)
+
+	require.NoError(t, command.ParseFlags([]string{}))
+	cOpts, err := new(flags.CollectorOptions).InitFromViper(v, zap.NewNop())
+	require.NoError(t, err)
+
+	spanWriter := memory.NewStore()
+
+	builder := &SpanHandlerBuilder{
+		SpanWriter:    spanWriter,
+		CollectorOpts: cOpts,
+		TenancyMgr:    &tenancy.Manager{},
+	}
+	assert.NotNil(t, builder.logger())
+	assert.NotNil(t, builder.metricsFactory())
+
+	builder = &SpanHandlerBuilder{
+		SpanWriter:     spanWriter,
+		CollectorOpts:  cOpts,
+		Logger:         zap.NewNop(),
+		MetricsFactory: metrics.NullFactory,
+		TenancyMgr:     &tenancy.Manager{},
+	}
+
+	spanProcessor := builder.BuildSpanProcessor()
+	spanHandlers := builder.BuildHandlers(spanProcessor)
+	assert.NotNil(t, spanHandlers.ZipkinSpansHandler)
+	assert.NotNil(t, spanHandlers.JaegerBatchesHandler)
+	assert.NotNil(t, spanHandlers.GRPCHandler)
+	assert.NotNil(t, spanProcessor)
+	require.NoError(t, spanProcessor.Close())
+}
+
+func TestDefaultSpanFilter(t *testing.T) {
+	assert.True(t, defaultSpanFilter(nil))
+}

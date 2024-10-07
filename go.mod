@@ -91,7 +91,7 @@ require (
 	go.uber.org/goleak v1.3.0
 	go.uber.org/zap v1.27.0
 	golang.org/x/net v0.29.0
-	golang.org/x/sys v0.25.0
+	golang.org/x/sys v0.26.0
 	google.golang.org/grpc v1.67.0
 	google.golang.org/protobuf v1.34.2
 	gopkg.in/yaml.v3 v3.0.1
@@ -213,7 +213,7 @@ require (
 	go.opentelemetry.io/collector/component/componentprofiles v0.110.0 // indirect
 	go.opentelemetry.io/collector/config/configcompression v1.16.0 // indirect
 	go.opentelemetry.io/collector/config/confignet v1.16.0
-	go.opentelemetry.io/collector/config/configopaque v1.16.0 // indirect
+	go.opentelemetry.io/collector/config/configopaque v1.16.0
 	go.opentelemetry.io/collector/config/configtelemetry v0.110.0
 	go.opentelemetry.io/collector/config/internal v0.110.0 // indirect
 	go.opentelemetry.io/collector/connector/connectorprofiles v0.110.0 // indirect

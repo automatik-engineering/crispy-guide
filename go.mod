@@ -11,7 +11,7 @@ require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
 	github.com/bsm/sarama-cluster v2.1.13+incompatible
 	github.com/crossdock/crossdock-go v0.0.0-20160816171116-049aabb0122b
-	github.com/dgraph-io/badger/v4 v4.3.0
+	github.com/dgraph-io/badger/v4 v4.4.0
 	github.com/elastic/go-elasticsearch/v8 v8.15.0
 	github.com/fsnotify/fsnotify v1.7.0
 	github.com/go-logr/zapr v1.3.0
@@ -90,12 +90,14 @@ require (
 	go.uber.org/automaxprocs v1.6.0
 	go.uber.org/goleak v1.3.0
 	go.uber.org/zap v1.27.0
-	golang.org/x/net v0.29.0
-	golang.org/x/sys v0.25.0
+	golang.org/x/net v0.30.0
+	golang.org/x/sys v0.26.0
 	google.golang.org/grpc v1.67.0
 	google.golang.org/protobuf v1.34.2
 	gopkg.in/yaml.v3 v3.0.1
 )
+
+require github.com/dgraph-io/ristretto/v2 v2.0.0 // indirect
 
 require (
 	github.com/IBM/sarama v1.43.3 // indirect
@@ -106,7 +108,6 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.4 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
-	github.com/dgraph-io/ristretto v0.1.2-0.20240116140435-c67e07994f91 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/eapache/go-resiliency v1.7.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3 // indirect
@@ -124,7 +125,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/google/flatbuffers v1.12.1 // indirect
+	github.com/google/flatbuffers v24.3.25+incompatible // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.22.0 // indirect
 	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
@@ -146,7 +147,7 @@ require (
 	github.com/jonboulle/clockwork v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.17.9 // indirect
+	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/knadh/koanf/maps v0.1.1 // indirect
 	github.com/knadh/koanf/providers/confmap v0.1.0 // indirect
 	github.com/knadh/koanf/v2 v2.1.1 // indirect
@@ -213,7 +214,7 @@ require (
 	go.opentelemetry.io/collector/component/componentprofiles v0.110.0 // indirect
 	go.opentelemetry.io/collector/config/configcompression v1.16.0 // indirect
 	go.opentelemetry.io/collector/config/confignet v1.16.0
-	go.opentelemetry.io/collector/config/configopaque v1.16.0 // indirect
+	go.opentelemetry.io/collector/config/configopaque v1.16.0
 	go.opentelemetry.io/collector/config/configtelemetry v0.110.0
 	go.opentelemetry.io/collector/config/internal v0.110.0 // indirect
 	go.opentelemetry.io/collector/connector/connectorprofiles v0.110.0 // indirect
@@ -245,9 +246,9 @@ require (
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	golang.org/x/crypto v0.27.0 // indirect
+	golang.org/x/crypto v0.28.0 // indirect
 	golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 // indirect
-	golang.org/x/text v0.18.0 // indirect
+	golang.org/x/text v0.19.0 // indirect
 	gonum.org/v1/gonum v0.15.1 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240903143218-8af14fe29dc1 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240903143218-8af14fe29dc1 // indirect
